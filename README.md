@@ -4,7 +4,7 @@
 You are required to write a script that can analyse basic server performance stats.
 
 ## Requirements
-Your task is to create a script named `server-stats.sh`. The script must be executable on any standard Linux distribution and provide the following analytics:
+Your task is to create a script named `server-stats-YOUR_USERNAME.sh`. The script must be executable on any standard Linux distribution and provide the following analytics:
 
 ### Core Metrics:
 * **Total CPU Usage:** Current overall utilization percentage.
@@ -29,7 +29,7 @@ This project follows the **Standard Open Source Contribution Workflow**. Please 
     ```bash
     git clone https://github.com/YOUR_USERNAME/Server-Performance-Stats.git
     ```
-3.  **Create Your Script:** Develop your `server-stats.sh` inside the repository. Ensure it has execution permissions:
+3.  **Create Your Script:** Develop your `server-stats-YOUR_USERNAME.sh` inside the repository. Ensure it has execution permissions:
     ```bash
     chmod +x server-stats.sh
     ```
