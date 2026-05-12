@@ -31,11 +31,11 @@ This project follows the **Standard Open Source Contribution Workflow**. Please 
     ```
 3.  **Create Your Script:** Develop your `server-stats-YOUR_USERNAME.sh` inside the repository. Ensure it has execution permissions:
     ```bash
-    chmod +x server-stats.sh
+    chmod +x server-stats-YOUR_USERNAME.sh
     ```
 4.  **Commit Your Changes:**
     ```bash
-    git add server-stats.sh
+    git add server-stats-YOUR_USERNAME.sh
     git commit -m "Add server-stats script with core requirements"
     ```
 5.  **Push to GitHub:**
