@@ -1,11 +1,9 @@
 # Project: Server Performance Analytics Shell Script
 
-## 🎯 Overview
+## Overview
 You are required to write a script that can analyse basic server performance stats.
 
----
-
-## 🛠 Requirements
+## Requirements
 Your task is to create a script named `server-stats.sh`. The script must be executable on any standard Linux distribution and provide the following analytics:
 
 ### Core Metrics:
@@ -15,22 +13,21 @@ Your task is to create a script named `server-stats.sh`. The script must be exec
 * **Top 5 Processes by CPU Usage:** List the top 5 resource consumers.
 * **Top 5 Processes by Memory Usage:** List the top 5 memory consumers.
 
-### 🌟 Stretch Goals (Optional)
+### Stretch Goals (Optional)
 For those looking to go beyond the basics, feel free to add:
 * OS Version & Uptime.
 * System Load Average.
 * List of currently logged-in users.
 * Report of failed login attempts (security audit).
 
----
-
-## 🚀 How to Submit Your Work
+## How to Submit Your Work
 
 This project follows the **Standard Open Source Contribution Workflow**. Please follow these steps carefully:
 
 1.  **Fork this Repository:** Click the "Fork" button at the top right of this page to create a copy in your own GitHub account.
-2.  **Clone Your Fork:** ```bash
-    git clone [https://github.com/YOUR_USERNAME/Server-Performance-Stats.git](https://github.com/YOUR_USERNAME/Server-Performance-Stats.git)
+2.  **Clone Your Fork:**
+    ```bash
+    git clone https://github.com/YOUR_USERNAME/Server-Performance-Stats.git
     ```
 3.  **Create Your Script:** Develop your `server-stats.sh` inside the repository. Ensure it has execution permissions:
     ```bash
@@ -46,22 +43,3 @@ This project follows the **Standard Open Source Contribution Workflow**. Please 
     git push origin main
     ```
 6.  **Submit a Pull Request (PR):** Go to the original repository in the organization and click **"New Pull Request"**. Compare your fork with the original `main` branch and submit.
-
----
-
-## 📝 Example Output
-Your script output should look clean and readable, similar to this:
-
-------------------------------------
-Server Stats - 2026-05-11
-------------------------------------
-CPU Usage: 12.5%
-Memory: Used: 2GB / Free: 6GB (25%)
-Disk: Used: 40GB / Free: 60GB (40%)
-
-Top 5 CPU Processes:
-[Process List...]
-
-Top 5 Memory Processes:
-[Process List...]
-------------------------------------
