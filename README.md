@@ -27,7 +27,7 @@ This project follows the **Standard Open Source Contribution Workflow**. Please 
 1.  **Fork this Repository:** Click the "Fork" button at the top right of this page to create a copy in your own GitHub account.
 2.  **Clone Your Fork:**
     ```bash
-    git clone https://github.com/YOUR_USERNAME/Server-Performance-Stats.git
+    git clone https://github.com/YOUR_USERNAME/dcc-server-performance-stats.git
     ```
 3.  **Create Your Script:** Develop your `server-stats-YOUR_USERNAME.sh` inside the repository. Ensure it has execution permissions:
     ```bash
