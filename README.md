@@ -1,9 +1,9 @@
 # Project: Server Performance Analytics Shell Script
 
 ## Overview
-You are required to write a script that can analyse basic server performance stats.
+You are required to write a script that can analyse basic server performance stats. Once your script is functional, you must containerize it.
 
-## Requirements
+## Script Requirements
 Your task is to create a script named `server-stats-YOUR_USERNAME.sh`. The script must be executable on any standard Linux distribution and provide the following analytics:
 
 ### Core Metrics:
@@ -19,6 +19,11 @@ For those looking to go beyond the basics, feel free to add:
 * System Load Average.
 * List of currently logged-in users.
 * Report of failed login attempts (security audit).
+
+## Containerization requirements
+To ensure the script runs in a standardized environment and is easily portable, you are required to encapsulate the tool using Docker. The goal is for the container to execute the analytics script and output the performance report immediately upon startup.
+
+Since containers are isolated, running a performance script inside one will typically show the container's resources. For this exercise, the focus is on the successful execution and output of the host system metrics.
 
 ## How to Submit Your Work
 
@@ -43,3 +48,5 @@ This project follows the **Standard Open Source Contribution Workflow**. Please 
     git push origin main
     ```
 6.  **Submit a Pull Request (PR):** Go to the original repository in the organization and click **"New Pull Request"**. Compare your fork with the original `main` branch and submit.
+
+*Same workflow for any change in the repo.*
