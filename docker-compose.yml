@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  server-stats:
+    build: .
+    image: dcc-server-stats:local
+    # Mount /proc and /var/log to allow the container to read host metrics/logs
+    volumes:
+      - /proc:/host_proc:ro
+      - /var/log:/var/log:ro
+    # Use host PID namespace so /proc shows host processes (optional, requires privileged-like access)
+    pid: "host"
+    # Do not restart; the container exits after printing the report
+    restart: "no"
