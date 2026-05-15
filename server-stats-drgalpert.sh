@@ -9,18 +9,21 @@
 
 set -u
 
+# Path to procfs (allows mounting host /proc to a different location, e.g. /host_proc)
+PROC_PATH="${PROC_PATH:-/proc}"
+
 print_header() {
   printf "\n===== %s =====\n" "$1"
 }
 
 get_cpu_usage() {
   # Read /proc/stat twice, 1s apart, and compute percentage busy
-  if [ -r /proc/stat ]; then
-    read -r _ user nice system idle iowait irq softirq steal guest < /proc/stat || return 1
+  if [ -r "$PROC_PATH/stat" ]; then
+    read -r _ user nice system idle iowait irq softirq steal guest < "$PROC_PATH/stat" || return 1
     prev_idle=$idle
     prev_total=$((user+nice+system+idle+iowait+irq+softirq+steal+guest))
     sleep 1
-    read -r _ user nice system idle iowait irq softirq steal guest < /proc/stat || return 1
+  read -r _ user nice system idle iowait irq softirq steal guest < "$PROC_PATH/stat" || return 1
     total=$((user+nice+system+idle+iowait+irq+softirq+steal+guest))
     idle_delta=$((idle - prev_idle))
     total_delta=$((total - prev_total))
@@ -39,15 +42,15 @@ get_cpu_usage() {
 
 get_mem_info() {
   # Prefer MemAvailable when present (more accurate for 'available' memory)
-  if [ -r /proc/meminfo ]; then
-    mem_total=$(awk '/MemTotal/ {print $2}' /proc/meminfo)
-    if awk '/MemAvailable/ {exit 0} END{exit 1}' /proc/meminfo; then
-      mem_avail=$(awk '/MemAvailable/ {print $2}' /proc/meminfo)
+  if [ -r "$PROC_PATH/meminfo" ]; then
+    mem_total=$(awk '/MemTotal/ {print $2}' "$PROC_PATH/meminfo")
+    if awk '/MemAvailable/ {exit 0} END{exit 1}' "$PROC_PATH/meminfo"; then
+      mem_avail=$(awk '/MemAvailable/ {print $2}' "$PROC_PATH/meminfo")
     else
       # fallback: MemFree + Buffers + Cached
-      mem_free=$(awk '/MemFree/ {print $2}' /proc/meminfo)
-      buff=$(awk '/Buffers/ {print $2}' /proc/meminfo)
-      cached=$(awk '/^Cached:/ {print $2}' /proc/meminfo)
+  mem_free=$(awk '/MemFree/ {print $2}' "$PROC_PATH/meminfo")
+  buff=$(awk '/Buffers/ {print $2}' "$PROC_PATH/meminfo")
+  cached=$(awk '/^Cached:/ {print $2}' "$PROC_PATH/meminfo")
       mem_avail=$((mem_free + buff + (cached>0?cached:0)))
     fi
     mem_used=$((mem_total - mem_avail))
@@ -112,8 +115,8 @@ main() {
   uptime -p 2>/dev/null || uptime 2>/dev/null || true
 
   print_header "Load Average"
-  if [ -r /proc/loadavg ]; then
-    awk '{printf "load avg: %s %s %s\n", $1,$2,$3}' /proc/loadavg
+  if [ -r "$PROC_PATH/loadavg" ]; then
+    awk '{printf "load avg: %s %s %s\n", $1,$2,$3}' "$PROC_PATH/loadavg"
   else
     uptime
   fi

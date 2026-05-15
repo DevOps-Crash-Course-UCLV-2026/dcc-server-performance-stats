@@ -1,0 +1,6 @@
+*.md
+*.pdf
+.git
+*.sh~
+node_modules
+__pycache__
